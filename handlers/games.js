@@ -36,9 +36,7 @@ exports.readAllGames = async (req, res) => {
     let games = req.query
     ? await db.Game.find(req.query)
     : await db.Game.find();
-
     return res.status(200).json(games);
-
   } catch (err) {
     return res.status(400).json({
       message: 'Failed to get the games from : ' + err,
